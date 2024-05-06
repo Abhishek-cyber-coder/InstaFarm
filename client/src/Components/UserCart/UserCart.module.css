@@ -1,0 +1,262 @@
+.userCart {
+  /* padding: 3vh 3vw 0 3vw;
+    height: 88vh; */
+  height: 0vh;
+  width: 87vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+  font-family: var(--primary-color);
+}
+
+.buttonRow {
+  margin-top: 1rem;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+}
+
+.buttonRow > button {
+  height: 5vh;
+  width: 15vw;
+  border: none;
+  outline: none;
+  background-color: #4ade80;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 2vh;
+  font-weight: 500;
+}
+
+.userCartRow {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5vw;
+}
+
+.userCartRow > span {
+  margin-top: 1vh;
+  font-size: 4vh;
+  font-weight: 600;
+}
+
+.cartContainer {
+  height: 60vh;
+  display: flex;
+}
+
+.cartProduct {
+  height: 25vh;
+  margin-bottom: 2vh;
+  display: flex;
+  column-gap: 2vw;
+}
+
+.cartProduct > img {
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+}
+
+.leftContainer {
+  border-right: 2px solid #e1e1e1;
+  width: 70%;
+  padding: 1vh;
+}
+
+.leftUpperBox {
+  border-top: 2px solid #e1e1e1;
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 10vh;
+  padding-top: 2vh;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.leftUpperBox::-webkit-scrollbar {
+  display: none;
+}
+
+.leftLower {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--primary-fontFamily);
+}
+
+.totalItems {
+  width: 18vw;
+  text-align: right;
+}
+
+.totalPrice {
+  width: 11vw;
+}
+
+.rightContainer {
+  font-family: var(--primary-fontFamily);
+  width: 30%;
+  padding: 1vh 1vw;
+}
+
+.rightUpperBox {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.priceDetails > div {
+  font-size: 2.5vh;
+  font-weight: 500;
+  margin-bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.priceDetails > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+
+.rightLower {
+  padding: 2vh 1vw;
+}
+
+.rightLower button {
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  height: 6vh;
+  width: 100%;
+  color: black;
+  background-color: #ffd600;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  font-family: Roboto;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .userCart {
+    padding: 5px;
+    height: 83vh;
+    overflow: hidden;
+  }
+
+  .buttonRow {
+    padding: 0;
+  }
+
+  .buttonRow > button {
+    display: flex;
+    height: 5vh;
+    width: 5vh;
+    background-color: white;
+    box-shadow: 0px 1px 4px 0px #00000054;
+    border-radius: 1rem;
+    color: black;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .leftContainer {
+    border: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  .leftUpperBox {
+    padding-bottom: 5vh;
+    border: none;
+    padding: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+    background-color: #dbdbdb;
+    margin-bottom: 2vh;
+  }
+
+  .cartProduct {
+    height: 25vh;
+    padding: 1vh;
+    margin-bottom: 3vh;
+  }
+
+  .cartProduct > img {
+    border: none;
+  }
+
+  .detailsRow {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    font-family: var(--primary-fontFamily);
+  }
+
+  .detailsRow > p {
+    font-size: 2.3vh;
+    font-weight: 500;
+  }
+  .detailsRow > span {
+    font-size: 1.7vh;
+  }
+
+  .leftLower {
+    border-top: 1px solid #000000;
+    height: 14vh;
+    padding: 1vh 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: baseline;
+    row-gap: 1vh;
+  }
+
+  .leftLower > button {
+    border: none;
+    border-radius: 1vh;
+    outline: none;
+    height: 6vh;
+    width: 100%;
+    background-color: #ffd600;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-family: Roboto;
+    cursor: pointer;
+  }
+
+  .mobileTotalPrice {
+    padding: 2vh;
+    font-family: var(--primary-fontFamily);
+  }
+
+  .mobileTotalPrice > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40%;
+  }
+
+  .mobileTotalPrice > div > span {
+    min-width: fit-content;
+    font-size: 1.7vh;
+    margin-bottom: 1vh;
+  }
+
+  .mobileTotalPrice > div > p {
+    font-size: 2.5vh;
+    font-weight: 500;
+  }
+}
