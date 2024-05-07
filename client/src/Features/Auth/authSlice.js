@@ -20,10 +20,9 @@ export const registerUserAsync = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await registerUserAPI(userData);
-      debugger;
+
       return response;
     } catch (error) {
-      debugger;
       return rejectWithValue(error?.response?.data?.message);
     }
   }

@@ -8,6 +8,7 @@ const productRoutes = require("./routes/product");
 const cartRoutes = require("./routes/cart");
 const creditRoutes = require("./routes/credit");
 const paymentRoutes = require("./routes/cashfree");
+const invoiceRoutes = require("./routes/invoice");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -28,6 +29,7 @@ app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/cart", cartRoutes);
 app.use("/api/v1/credit", creditRoutes);
 app.use("/api/v1/cashfree", paymentRoutes);
+app.use("/api/v1/invoice", invoiceRoutes);
 
 app.use(handleCommonError);
 

@@ -74,6 +74,10 @@ function Header() {
     dispatch(logout());
   };
 
+  const handleAddCredits = () => {
+    router.push("/payment");
+  };
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -91,6 +95,10 @@ function Header() {
 
   const handleHomeRoute = () => {
     router.push("/");
+  };
+
+  const handleInvoiceRoute = () => {
+    router.push("/invoice");
   };
 
   return (
@@ -161,6 +169,16 @@ function Header() {
               >
                 <Typography textAlign="center">Home</Typography>
               </MenuItem>
+              {isAuthenticated && (
+                <MenuItem
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    handleInvoiceRoute();
+                  }}
+                >
+                  <Typography textAlign="center">Invoice</Typography>
+                </MenuItem>
+              )}
             </Menu>
           </Box>
           {/* Mobile View */}
@@ -197,6 +215,17 @@ function Header() {
             >
               Home
             </Button>
+            {isAuthenticated && (
+              <Button
+                onClick={() => {
+                  handleCloseNavMenu();
+                  handleInvoiceRoute();
+                }}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Invoice
+              </Button>
+            )}
           </Box>
 
           {isAuthenticated && (
@@ -260,7 +289,12 @@ function Header() {
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
+                <MenuItem
+                  onClick={() => {
+                    handleCloseUserMenu();
+                    handleAddCredits();
+                  }}
+                >
                   <Typography textAlign="center">Add Credits</Typography>
                 </MenuItem>
                 <MenuItem

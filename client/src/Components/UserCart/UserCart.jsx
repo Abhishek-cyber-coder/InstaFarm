@@ -9,6 +9,11 @@ import CartProducts from "../CartProducts/CartProducts";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { selectUserCredits } from "@/Features/Credit/creditSlice";
+import { addInvoiceAsync } from "@/Features/Invoice/invoiceSlice";
+import { deleteCartItemsAsync } from "@/Features/Cart/cartSlice";
+import { deductCreditsApi } from "@/apis/credit";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UserCart({ mobileView }) {
   const router = useRouter();
@@ -20,13 +25,19 @@ function UserCart({ mobileView }) {
     // Check if user has enough credits to place the order
     if (cart && cart.totalCredits > userCredits) {
       // If user doesn't have enough credits, display a message and prevent placing the order
-      alert("Not enough credits. Please add credits to place the order.");
+      toast.error("You don't have enough credits");
     } else {
-      // If user has enough credits, proceed with placing the order
-      // Add your order placement logic here
-      // For example, redirect to checkout page or trigger order API
-      // You can replace the alert with your desired action
-      alert("Order placed successfully!");
+      let invoiceData = {
+        items: cart?.items,
+        orderTotal: cart?.totalCredits,
+      };
+      dispatch(addInvoiceAsync(invoiceData))
+        .then(async () => {
+          let deductCredits = cart?.totalCredits;
+          await deductCreditsApi({ deductCredits });
+        })
+        .then(() => dispatch(deleteCartItemsAsync()))
+        .then(() => router.push("/order_success"));
     }
   };
 

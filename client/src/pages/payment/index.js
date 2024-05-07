@@ -3,7 +3,10 @@ import React from "react";
 
 export default function PaymentPage() {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex flex-col gap-2 items-center justify-center h-screen">
+      <div className="font-bold text-2xl text-red-400">
+        You can add 1 credit per ₹50
+      </div>
       <CashFree />
     </div>
   );

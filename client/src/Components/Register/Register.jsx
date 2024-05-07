@@ -28,7 +28,6 @@ function Register() {
   const router = useRouter();
 
   const onSubmit = (data) => {
-    console.log(data);
     const tempData = {
       name: data.name,
       address: data.address,
@@ -37,9 +36,8 @@ function Register() {
       password: data.password,
     };
     setFormData(tempData);
-    debugger;
+
     dispatch(registerUserAsync(tempData));
-    debugger;
   };
 
   // useEffect(() => {
@@ -52,7 +50,6 @@ function Register() {
     if (isAuthenticated) {
       router.push("/");
     }
-    debugger;
   }, [router, isAuthenticated]);
 
   return (

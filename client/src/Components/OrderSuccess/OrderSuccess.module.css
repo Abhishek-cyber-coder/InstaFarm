@@ -1,0 +1,90 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  width: 87vw;
+  margin: 5rem auto;
+}
+
+.orderContainer {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.orderBox {
+  height: 50vh;
+  width: 45vw;
+  border: 3px solid #e3e3e3;
+  box-shadow: 14px 16px 23px 2px #0000001c;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2vh;
+}
+
+.orderBox img {
+  height: 12vh;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 2vh;
+}
+
+.orderBox span {
+  font-size: 3.4vh;
+  font-weight: 600;
+}
+
+.orderBox p {
+  text-align: center;
+  font-size: 2.5vh;
+  font-weight: 500;
+  color: #969696;
+}
+
+.orderBox button {
+  margin-top: 2vh;
+  width: 25vw;
+  height: 6vh;
+  background-color: #4ade80;
+  border: none;
+  outline: none;
+  border-radius: 1vh;
+  font-size: 2.5vh;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile view */
+
+@media (max-width: 768px) {
+  .order {
+    padding: 0;
+    height: 92vh;
+    overflow: hidden;
+  }
+
+  .orderBox {
+    padding-inline: 3vw;
+    width: 85vw;
+    height: 50vh;
+    border-radius: 2vh;
+    row-gap: 1.5vh;
+  }
+
+  .orderBox span {
+    font-size: 2.5vh;
+  }
+
+  .orderBox p {
+    text-align: center;
+    font-size: 2vh;
+  }
+
+  .orderBox button {
+    width: 100%;
+    font-size: 2vh;
+  }
+}

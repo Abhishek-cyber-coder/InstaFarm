@@ -38,4 +38,19 @@ router.patch("/", verifyAuth, async (req, res, next) => {
   }
 });
 
+router.patch("/deductCredits", verifyAuth, async (req, res, next) => {
+  try {
+    const { userId, deductCredits } = req.body;
+    let credits = await Credits.findOne({ user: userId });
+
+    credits.credits -= deductCredits;
+
+    await credits.save();
+
+    res.json({ message: "Credits updated successfully", credits });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

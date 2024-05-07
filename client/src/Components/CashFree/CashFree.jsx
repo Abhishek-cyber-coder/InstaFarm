@@ -10,7 +10,7 @@ function CashFree() {
   const [loading, setLoading] = useState("");
   const [cashfree, setCashfree] = useState(null);
   const [orderAmount, setOrderAmount] = useState(0);
-  //   const [version, setVersion] = useState(null);
+  const [error, setError] = useState(false);
   let version = cashfree?.version();
   let token = getLocalStorageData("token");
 
@@ -29,27 +29,32 @@ function CashFree() {
   }, []);
 
   const handlePayment = async (sessionId) => {
-    debugger;
     let checkoutOptions = {
       paymentSessionId: sessionId,
-      returnUrl: "http://localhost:3000/",
+      returnUrl: "http://localhost:3010/api/v1/cashfree/checkStatus/{order_id}",
     };
-    debugger;
+
     cashfree.checkout(checkoutOptions).then(function (result) {
       if (result.error) {
         alert(result.error.message);
-        debugger;
       }
       if (result.redirect) {
         console.log("Redirection");
-        debugger;
       }
     });
   };
 
   const getSessionId = () => {
     setLoading(true);
-    debugger;
+
+    if (orderAmount === 0 || orderAmount % 50 !== 0) {
+      setError(true);
+      setLoading(false);
+      return;
+    } else {
+      setError(false);
+    }
+
     axios.defaults.headers.common["Authorization"] = token;
     axios
       .post("http://localhost:3010/api/v1/cashfree/payment", {
@@ -58,7 +63,6 @@ function CashFree() {
       })
       .then((res) => {
         setLoading(false);
-        console.log(res.data);
         handlePayment(res.data);
       })
       .catch((err) => {
@@ -81,7 +85,7 @@ function CashFree() {
         <form onSubmit={getSessionId}>
           <h1 className="font-bold text-xl">Amount </h1>
           <input
-            className="border-2"
+            className="border-2 w-full"
             placeholder="Enter amount"
             type="number"
             value={orderAmount}
@@ -89,6 +93,11 @@ function CashFree() {
               setOrderAmount(e.target.value);
             }}
           />
+          {error && (
+            <p className="text-red-600 text-md">
+              Amount should be a multiple of 50
+            </p>
+          )}
           {loading && (
             <div>
               <button type="submit">

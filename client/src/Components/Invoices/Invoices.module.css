@@ -1,0 +1,171 @@
+.mainContainer {
+  padding: 3vh 3vw;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  overflow: auto;
+}
+
+.mainContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.buttonRow {
+  height: 8vh;
+  padding: 1vh 0;
+  display: flex;
+  align-items: center;
+}
+
+.buttonRow button {
+  height: 5vh;
+  width: 15vw;
+  border: none;
+  outline: none;
+  background-color: #4ade80;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 2vh;
+  font-weight: 500;
+}
+
+.invoiceHeading {
+  min-height: 15vh;
+  margin-bottom: 3vh;
+  display: grid;
+  place-items: center;
+  font-size: 3.5vh;
+  font-weight: 600;
+}
+
+.invoicesContainer {
+  padding: 3vh 0;
+  min-height: fit-content;
+  margin-bottom: 5vh;
+}
+
+.invoiceBox {
+  border-bottom: 2px solid #e1e1e1;
+  height: 15vh;
+  padding: 1vh 1vw;
+  margin-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.insideInvoiceBox {
+  min-height: fit-content;
+  min-width: 30vw;
+  display: flex;
+  align-items: center;
+  column-gap: 1.5vw;
+  color: #797979;
+}
+
+.insideInvoiceBox img {
+  height: 10vh;
+  object-fit: cover;
+}
+
+.insideInvoiceBox span {
+  font-size: 3vh;
+}
+
+.insideInvoiceBox p {
+  font-size: 2vh;
+}
+
+.mainContainer button {
+  background-color: #4ade80;
+  padding-inline: 2vw;
+  height: 7vh;
+  width: 20vw;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2.5vh;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    height: 92vh;
+    row-gap: 1vh;
+    padding: 0;
+  }
+
+  .buttonRow {
+    padding: 0;
+  }
+  .buttonRow button {
+    display: flex;
+    margin-inline: 3vw;
+    height: 5vh;
+    width: 5vh;
+    background-color: white;
+    box-shadow: 0px 1px 4px 0px #00000054;
+    border-radius: 1rem;
+    color: black;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .invoiceHeading {
+    min-height: 6vh;
+    margin-bottom: 0vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2vw;
+    font-size: 3vh;
+    font-weight: 600;
+  }
+
+  .invoiceHeading img {
+    height: 3vh;
+  }
+
+  .invoicesContainer {
+    padding: 0;
+    margin: 0;
+  }
+
+  .invoiceBox {
+    border-bottom: 2px solid #e1e1e1;
+    padding: 1vh 2vw;
+    margin-bottom: 3vh;
+  }
+
+  .insideInvoiceBox {
+    min-height: fit-content;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    color: #797979;
+  }
+
+  .insideInvoiceBox img {
+    height: 5vh;
+    object-fit: cover;
+    margin-right: 1vw;
+  }
+
+  .insideInvoiceBox span {
+    font-size: 3vh;
+  }
+
+  .mainContainer button {
+    height: 5vh;
+    padding-inline: 3vw;
+    width: fit-content;
+    border-radius: 1rem;
+    font-size: 2vh;
+  }
+}

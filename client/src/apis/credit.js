@@ -28,7 +28,6 @@ export const updateCreditsApi = async ({ amountOfCredits }) => {
 
     const response = await axios.patch(requestUrl, reqPayload);
 
-    toast.success(response?.data?.message);
     return response?.data;
   } catch (error) {
     console.log(error);
@@ -40,18 +39,21 @@ export const updateCreditsApi = async ({ amountOfCredits }) => {
   }
 };
 
-// export const createCreditsApi = async () => {
-//   try {
-//     const requestUrl = `${backendUrl}/`;
-//     const response = await axios.post(requestUrl);
+export const deductCreditsApi = async ({ deductCredits }) => {
+  try {
+    const requestUrl = `${backendUrl}/deductCredits`;
 
-//     return response?.data;
-//   } catch (error) {
-//     console.log(error);
-//     if (error?.response) {
-//       toast.error(error.response?.data?.message);
-//     } else {
-//       toast.error(error?.message);
-//     }
-//   }
-// };
+    const reqPayload = { deductCredits };
+
+    const response = await axios.patch(requestUrl, reqPayload);
+
+    return response?.data;
+  } catch (error) {
+    console.log(error);
+    if (error?.response) {
+      toast.error(error.response?.data?.message);
+    } else {
+      toast.error(error?.message);
+    }
+  }
+};
