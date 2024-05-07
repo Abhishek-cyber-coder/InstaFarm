@@ -11,3 +11,10 @@
 # For Testing
 ## -> LoginId: test@gmail.com
 ## -> password: 123456
+
+# Adding .env file variables for server folder here
+## -> MONGO_URI=mongodb+srv://admin:admin@instafarm.v3kf5nj.mongodb.net/InstaFarm?retryWrites=true&w=majority&appName=instafarm
+
+## -> JWT_SECRET_KEY=abhi@1%9756sharma
+## -> CASHFREE_CLIENT_ID="TEST10185679afc4251f7b7cd2dca4eb97658101"
+## -> CASHFREE_SECRET_ID="cfsk_ma_test_78ab0f9b731411bfe48d7b056a6d0b0a_f76d7aec"
